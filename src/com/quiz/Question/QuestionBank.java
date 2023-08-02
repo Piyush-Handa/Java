@@ -8,10 +8,16 @@ public class QuestionBank {
         this.defaultQuestions();
     }
 
+    /*
+    set question bank size
+     */
     public void setQuestionSetSize(int size) {
         this.questions = new Questions[size];
     }
 
+    /*
+    load default questions
+     */
     public void defaultQuestions() {
         questions[0] = new Questions("size of int", "2", "6", "4", "8", "3");
         questions[1] = new Questions("size of double", "2", "6", "4", "8", "4");
@@ -26,6 +32,10 @@ public class QuestionBank {
         }
     }
 
+    /*
+    Add questions to questionbank
+    all keep track of default questions if admin wants to keep or not
+     */
     public void addQuestions(boolean defaultQuestionsAdded) {
         int i;
         if (defaultQuestionsAdded) {
@@ -57,7 +67,11 @@ public class QuestionBank {
 
 
     }
-    public void validateQuestionPresent(){
+
+    /*
+    Fail safe to load question in app before playes start to play quiz
+     */
+    public void validateQuestionPresent() {
         boolean isPresent = true;
         for (Questions question : questions) {
             if (question == null) {
@@ -65,11 +79,12 @@ public class QuestionBank {
                 break;
             }
         }
-        if(!isPresent){
+        if (!isPresent) {
             setQuestionSetSize(5);
             defaultQuestions();
         }
     }
+
     public Questions[] getQuestions() {
         return questions;
     }

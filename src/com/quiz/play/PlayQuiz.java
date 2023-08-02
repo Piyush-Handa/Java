@@ -22,6 +22,9 @@ public class PlayQuiz {
         this.pickRole();
     }
 
+    /*
+    roles handling
+     */
     private void pickRole() {
         int i = 0;
         do {
@@ -42,6 +45,9 @@ public class PlayQuiz {
         } while (i != 0);
     }
 
+    /*
+    valide action of admin
+     */
     private void adminActions() {
         int i = 0;
         Admin admin = new Admin(questionBank);
@@ -69,6 +75,9 @@ public class PlayQuiz {
         admin.updateQuestionBank(count, includeExistingQuestions);
     }
 
+    /*
+    valid actions of player
+     */
     private void playerActions() {
         int i = 0;
 
