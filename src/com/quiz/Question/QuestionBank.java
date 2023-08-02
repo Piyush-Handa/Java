@@ -36,10 +36,11 @@ public class QuestionBank {
     Add questions to questionbank
     all keep track of default questions if admin wants to keep or not
      */
-    public void addQuestions(boolean defaultQuestionsAdded) {
+    public void addQuestions(boolean defaultQuestionsAdded,Questions []backup) {
         int i;
         if (defaultQuestionsAdded) {
-            i = 5;
+            System.arraycopy(backup, 0, questions, 0, backup.length);
+            i = backup.length;
         } else {
             i = 0;
         }

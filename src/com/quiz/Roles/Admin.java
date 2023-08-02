@@ -1,6 +1,7 @@
 package com.quiz.Roles;
 
 import com.quiz.Question.QuestionBank;
+import com.quiz.Question.Questions;
 
 
 public class Admin {
@@ -15,12 +16,15 @@ public class Admin {
     }
 
     public void updateQuestionBank(int count, boolean includeExistingQuestions) {
+   Questions[] backup = questionBank.getQuestions();
         if (includeExistingQuestions) {
-            questionBank.setQuestionSetSize(5 + count);
+            questionBank.setQuestionSetSize(questionBank.getTotalQuestions() + count);
+            questionBank.addQuestions(includeExistingQuestions,backup);
         } else {
             questionBank.setQuestionSetSize(count);
+            questionBank.addQuestions(includeExistingQuestions,null);
         }
-        questionBank.addQuestions(includeExistingQuestions);
+
     }
 
 
